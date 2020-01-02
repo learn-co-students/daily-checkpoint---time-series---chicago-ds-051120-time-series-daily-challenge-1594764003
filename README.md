@@ -1,7 +1,4 @@
-
----
 ## Time Series
----
 
 <!---Create stock_df and save as .pkl
 stocks_df = pd.read_csv("raw_data/all_stocks_5yr.csv")
@@ -17,6 +14,9 @@ import pickle
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
 ```
 
 
@@ -25,86 +25,11 @@ stocks_df = pickle.load(open("write_data/all_stocks_5yr.pkl", "rb"))
 stocks_df.head()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>open</th>
-      <th>high</th>
-      <th>low</th>
-      <th>close</th>
-      <th>date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>15.07</td>
-      <td>15.12</td>
-      <td>14.63</td>
-      <td>14.75</td>
-      <td>February 08, 2013</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>14.89</td>
-      <td>15.01</td>
-      <td>14.26</td>
-      <td>14.46</td>
-      <td>February 11, 2013</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>14.45</td>
-      <td>14.51</td>
-      <td>14.10</td>
-      <td>14.27</td>
-      <td>February 12, 2013</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>14.30</td>
-      <td>14.94</td>
-      <td>14.25</td>
-      <td>14.66</td>
-      <td>February 13, 2013</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>14.94</td>
-      <td>14.96</td>
-      <td>13.16</td>
-      <td>13.99</td>
-      <td>February 14, 2013</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 ### 1. Transform the `date` feature so that it becomes a `datetime` object that contains the following format: YYYY-MM-DD and set `date` to be the index of `stocks_df`.
 
 
 ```python
-# // your code here //
+# Your code here
 ```
 
 ### 2. Perform monthly upsampling on `stocks_df` that takes the mean of the `open`, `high`, `low`, and `close` features on a monthly basis. Store the results in `stocks_monthly_df`.
@@ -113,7 +38,12 @@ stocks_df.head()
 
 
 ```python
-# // your code here //
+# Your code here
+```
+
+
+```python
+stocks_monthly_df.shape
 ```
 
 ### 3. Create a line graph that visualizes the monthly open stock prices from `stocks_monthly_df` for the purposes of identifying if average monthly open stock price is stationary or not using the rolling mean and rolling standard deviation.
@@ -124,14 +54,18 @@ stocks_df.head()
 
 
 ```python
-# // your code here //
+# Your code here
 
 open_monthly_df = None
 
 rolmean = None
 rolstd = None
 
-# note: do not rename the objects otherwise the plot code will not work
+# note: do not rename the variables otherwise the plot code will not work
+```
+
+
+```python
 fig, ax = plt.subplots(figsize=(13, 10))
 ax.plot(open_monthly_df, color="blue",label="Average monthly opening stock price")
 ax.plot(rolmean, color="red", label="Rolling quarterly mean")
@@ -142,21 +76,28 @@ fig.suptitle("Average monthly open stock prices, Feb. 2013 to Feb. 2018")
 fig.tight_layout()
 ```
 
-// your answer here //
-
-### 4. Use the Dickey-Fuller Test to identify if `open_monthly_df` is stationary. Does this confirm your answer from Question 3? Explain why the time series is stationary or not based on the output from the Dickey-Fuller Test.
+Based on your visual inspection of the graph, is the monthly open stock price stationary?
 
 
 ```python
-# // your code here
+# Your written answer here
 ```
+
+### 4. Use the Dickey-Fuller Test to identify if `open_monthly_df` is stationary
+
+
+```python
+# Your code here
+```
+
+Does this confirm your answer from Question 3? Explain why the time series is stationary or not based on the output from the Dickey-Fuller Test.
 
 
 ```python
 # Your answer here
 ```
 
-### 5. Looking at the decomposition of the time series in `open_monthly_df`, it looks like the peaks are the same value. To confirm or deny this, create a function that returns a dictionary where each key is year and each values is the maximum value from the `seasonal` object for each year.
+### 5. Looking at the decomposition of the time series in `open_monthly_df`, it looks like the peaks are the same value. To confirm or deny this, create a function that returns a dictionary where each key is year and each value is the maximum value from the `seasonal` object for each year.
 
 
 ```python
@@ -179,8 +120,7 @@ plt.show()
 ```python
 def calc_yearly_max(seasonal_series):
     """Returns the max seasonal value for each year"""
-    # // your code here //
-    pass
+    # Your code here
 ```
 
 
