@@ -32,9 +32,9 @@ stocks_df.head()
 # Your code here
 ```
 
-### 2. Perform monthly upsampling on `stocks_df` that takes the mean of the `open`, `high`, `low`, and `close` features on a monthly basis. Store the results in `stocks_monthly_df`.
+### 2. Perform monthly downsampling on `stocks_df` that takes the mean of the `open`, `high`, `low`, and `close` features on a monthly basis. Store the results in `stocks_monthly_df`.
 
-> Hint: `stocks_monthly_df` should have 61 rows and 4 columns after you perform upsampling.
+> Hint: `stocks_monthly_df` should have 61 rows and 4 columns after you perform downsampling.
 
 
 ```python
