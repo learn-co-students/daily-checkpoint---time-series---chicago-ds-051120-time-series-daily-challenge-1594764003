@@ -49,14 +49,14 @@ stocks_monthly_df.shape
 ### 3. Create a line graph that visualizes the monthly open stock prices from `stocks_monthly_df` for the purposes of identifying if average monthly open stock price is stationary or not using the rolling mean and rolling standard deviation.
 
 > Hint: 
-> * store your sliced version of `stocks_monthly_df` in a new DataFrame called `open_monthly_df`;
+> * store your sliced version of `stocks_monthly_series` in a new DataFrame called `open_monthly_series`;
 > * use a window size of 3 to represent one quarter of time in a year
 
 
 ```python
 # Your code here
 
-open_monthly_df = None
+open_monthly_series = None
 
 rolmean = None
 rolstd = None
@@ -67,7 +67,7 @@ rolstd = None
 
 ```python
 fig, ax = plt.subplots(figsize=(13, 10))
-ax.plot(open_monthly_df, color="blue",label="Average monthly opening stock price")
+ax.plot(open_monthly_series, color="blue",label="Average monthly opening stock price")
 ax.plot(rolmean, color="red", label="Rolling quarterly mean")
 ax.plot(rolstd, color="black", label="Rolling quarterly std. deviation")
 ax.set_ylim(0, 120)
@@ -102,7 +102,7 @@ Does this confirm your answer from Question 3? Explain why the time series is st
 
 ```python
 from statsmodels.tsa.seasonal import seasonal_decompose
-decomposition = seasonal_decompose(np.log(open_monthly_df))
+decomposition = seasonal_decompose(np.log(open_monthly_series))
 
 # Gather the trend, seasonality and noise of decomposed object
 seasonal = decomposition.seasonal
