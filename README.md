@@ -97,7 +97,7 @@ Does this confirm your answer from Question 3? Explain why the time series is st
 # Your answer here
 ```
 
-### 5. Looking at the decomposition of the time series in `open_monthly_series`, it looks like the peaks are the same value. To confirm or deny this, create a function that returns a dictionary where each key is year and each value is the maximum value from the `seasonal` object for each year.
+### 5. Looking at the decomposition of the time series in `open_monthly_series`, it looks like the peaks are the same value. To confirm or deny this, create a function that returns a dictionary where each key is a year and each value is the maximum value from the `seasonal` object for a given year.
 
 
 ```python
