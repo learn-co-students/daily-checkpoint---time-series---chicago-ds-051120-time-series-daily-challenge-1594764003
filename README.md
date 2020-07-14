@@ -49,7 +49,7 @@ stocks_monthly_df.shape
 ### 3. Create a line graph that visualizes the monthly open stock prices from `stocks_monthly_df` for the purposes of identifying if average monthly open stock price is stationary or not using the rolling mean and rolling standard deviation.
 
 > Hint: 
-> * store your sliced version of `stocks_monthly_series` in a new DataFrame called `open_monthly_series`;
+> * store your sliced version of `stocks_monthly_df` in a new variable called `open_monthly_series`;
 > * use a window size of 3 to represent one quarter of time in a year
 
 
@@ -83,7 +83,7 @@ Based on your visual inspection of the graph, is the monthly open stock price st
 # Your written answer here
 ```
 
-### 4. Use the Dickey-Fuller Test to identify if `open_monthly_df` is stationary
+### 4. Use the Dickey-Fuller Test to identify if `open_monthly_series` is stationary
 
 
 ```python
@@ -97,7 +97,7 @@ Does this confirm your answer from Question 3? Explain why the time series is st
 # Your answer here
 ```
 
-### 5. Looking at the decomposition of the time series in `open_monthly_df`, it looks like the peaks are the same value. To confirm or deny this, create a function that returns a dictionary where each key is year and each value is the maximum value from the `seasonal` object for each year.
+### 5. Looking at the decomposition of the time series in `open_monthly_series`, it looks like the peaks are the same value. To confirm or deny this, create a function that returns a dictionary where each key is year and each value is the maximum value from the `seasonal` object for each year.
 
 
 ```python
